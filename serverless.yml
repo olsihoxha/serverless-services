@@ -1,0 +1,56 @@
+service: voice-reckognition
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+
+functions:
+  auth:
+    handler: api_provider/auth.handler
+  get_api:
+    handler: api_provider/get_api.get_key
+    events:
+      - http:
+          path: account/get-api-key
+          method: post
+          cors: true
+  generate_text:
+    handler: api_provider/generate_text.generate_text
+    events:
+      - http:
+          path: {apiKey}/generate-text
+          method: post
+          authorizer:
+            name: auth
+          cors: true
+
+resources:
+  Resources:
+    ApiKeys:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ApiKeys
+        AttributeDefinitions:
+          - AttributeName: email
+            AttributeType: S
+        KeySchema:
+          - AttributeName: email
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+plugins:
+  - serverless-python-requirements
+
+
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+
+package:
+  exclude:
+    - node_modules/**
+    - package-lock.json
+    - venv/**
