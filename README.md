@@ -6,7 +6,7 @@ After getting the API Key, you can start using the API which has some authentica
 To use the API the client has to send an audio (.wav file) encoded as base64 --you have to convert the audio file as base64 before sending it to the webservice.
 
 
-<i>This repo will be developed more in the future by adding other services for the client to use</i>
+<i>This repo will be developed more in the future by adding other services for the clients to use.</i>
 
 
 **Anyone who is interested to be part of this serverless project can contact me, as the mission of this repo is to create free services to use for the community.**
