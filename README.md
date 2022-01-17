@@ -7,7 +7,7 @@ To use:
 
 1.The voice recognition service, the client has to send an audio (.wav file) encoded as base64 --you have to convert the audio file as base64 before sending it to the webservice.
   -It returns back a string with the detected speech in the audio file  
-2.The face detection service the, client has to send an image encoded as base64 --you have to convert the image file as base64 before sending it to the webservice.
+2.The face detection service, the client has to send an image encoded as base64 --you have to convert the image file as base64 before sending it to the webservice.
   -It returns back an array with json objects that contains the starting coordinates and the width + height for every face detected in the image 
   
   
