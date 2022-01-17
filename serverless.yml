@@ -1,4 +1,4 @@
-service: voice-reckognition
+service: serverless-services
 frameworkVersion: '2'
 
 provider:
