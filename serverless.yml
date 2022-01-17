@@ -10,7 +10,7 @@ functions:
   auth:
     handler: api_provider/auth.handler
   get_api:
-    handler: api_provider/get_api.get_key
+    handler: api_provider/get_api.get_key/
     events:
       - http:
           path: account/get-api-key
@@ -20,7 +20,16 @@ functions:
     handler: api_provider/generate_text.generate_text
     events:
       - http:
-          path: {apiKey}/generate-text
+          path: {apiKey}/generate-text/
+          method: post
+          authorizer:
+            name: auth
+          cors: true
+  detect_faces:
+    handler: api_provider/detect_faces.detect_faces
+    events:
+      - http:
+          path: {apiKey}/detect-faces/
           method: post
           authorizer:
             name: auth
