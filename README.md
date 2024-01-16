@@ -13,5 +13,3 @@ To use:
   
 <i>This repo will be developed more in the future by adding other services for the clients to use.</i>
 
-
-**Anyone who is interested to be part of this serverless project can contact me, as the mission of this repo is to create free services to use for the community.**
